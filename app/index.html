@@ -22,7 +22,7 @@
     <!-- endbuild -->
     
   </head>
-  <body>
+  <body id="circles">
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -67,37 +67,63 @@
                 ita varias de quae. Noster id possumus. </p>
         </div>
     </section>
+    <section class="row">
+		<div class="container">
+			<div class="col-md-5 col-md-offset-1">
+				<h2>Roasted</h2>
+			</div>
+			<div class="col-md-5">
+				<div class="slide">
+					<h2 class="slide__title slide__title--preview">Macadamia Skin Oil <span class="slide__price">$39</span></h2>
+					<div class="slide__item">
+						<div class="deco deco--circle deco--expander"><img class="slide__img slide__img--small" src="images/roasted.jpg" alt="Some image" /></div>
+						<div class="slide__inner">
+
+							<button class="action action--open" aria-label="View details"><i class="fa fa-plus"></i></button>
+						</div>
+					</div>
+					<div class="slide__content">
+					<div class="slide__content-scroller">
+						<img class="slide__img slide__img--large" src="images/roasted.jpg" alt="Picture of roasted vegetables" />
+							<div class="slide__details">
+								<h2 class="slide__title slide__title--main">Macadamia Skin Oil</h2>
+								<p class="slide__description">Hydration for very dry skin</p>
+								<div>
+									<span class="slide__price slide__price--large">$39</span>
+									<button class="button button--buy">Add to cart</button>
+								</div>
+							</div><!-- /slide__details -->
+						</div><!-- slide__content-scroller -->
+					</div><!-- slide__content -->
+				</div>
+			</div>
+		</div>
+    </section>
     <div class="row">
         <div class="col-md-5 col-md-offset-1">
-            <h2>Roasted</h2>
-        </div>
-        <div class="col-md-5">
-            <h2 class="slide__title slide__title--preview">Macadamia Skin Oil <span class="slide__price">$39</span></h2>
-            <div class="slide__item">
-                <div class="deco deco--circle deco--expander"></div>
-                <div class="slide__inner">
-                    <img class="slide__img slide__img--small" src="img/small/1.png" alt="Some image" />
-                    <button class="action action--open" aria-label="View details"><i class="fa fa-plus"></i></button>
-                </div>
-            </div>
-            <div class="slide__content">
-                <div class="slide__content-scroller">
-                    <img class="slide__img slide__img--large" src="img/1.png" alt="Some image" />
-                    <div class="slide__details">
-                        <h2 class="slide__title slide__title--main">Macadamia Skin Oil</h2>
-                        <p class="slide__description">Hydration for very dry skin</p>
-                        <div>
-                            <span class="slide__price slide__price--large">$39</span>
-                            <button class="button button--buy">Add to cart</button>
-                        </div>
-                    </div><!-- /slide__details -->
-                </div><!-- slide__content-scroller -->
-            </div><!-- slide__content -->
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-5 col-md-offset-1">
-            
+            <div class="slide">
+				<h2 class="slide__title slide__title--preview">Macadamia Skin Oil <span class="slide__price">$39</span></h2>
+				<div class="slide__item">
+					<div class="deco deco--circle deco--expander"><img class="slide__img slide__img--small" src="images/roasted.jpg" alt="Some image" /></div>
+					<div class="slide__inner">
+
+						<button class="action action--open" aria-label="View details"><i class="fa fa-plus"></i></button>
+					</div>
+				</div>
+				<div class="slide__content">
+				<div class="slide__content-scroller">
+					<img class="slide__img slide__img--large" src="images/roasted.jpg" alt="Picture of roasted vegetables" />
+						<div class="slide__details">
+							<h2 class="slide__title slide__title--main">Macadamia Skin Oil</h2>
+							<p class="slide__description">Hydration for very dry skin</p>
+							<div>
+								<span class="slide__price slide__price--large">$39</span>
+								<button class="button button--buy">Add to cart</button>
+							</div>
+						</div><!-- /slide__details -->
+					</div><!-- slide__content-scroller -->
+				</div><!-- slide__content -->
+			</div>
         </div>
         <div class="col-md-5">
             <h2>Avocado</h2>
@@ -148,10 +174,20 @@
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
     <!-- endbuild -->
     
+	 <script src="scripts/classie.js"></script>
+	 <script src="scripts/dynamics.js"></script>
 
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
+	  
+	<script>
+		(function() {
+			//document.documentElement.className = 'js';
+			//var slideshow = new Circle(document.getElementById('slideshow'));
+			//var circles = new Circle(document.getElementsByName('body'));
+		})();
+	</script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
