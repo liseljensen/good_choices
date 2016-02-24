@@ -1,268 +1,126 @@
 (function(){
     'use strict';
-    var theScroll;
-	var bodyEl = document.body,
-		docElem = window.document.documentElement,
-		docWidth = Math.max(bodyEl.scrollWidth, bodyEl.offsetWidth, docElem.clientWidth, docElem.scrollWidth, docElem.offsetWidth),
-		docHeight = Math.max(bodyEl.scrollHeight, bodyEl.offsetHeight, docElem.clientHeight, docElem.scrollHeight, docElem.offsetHeight);
+$('[data-type="modal-trigger"]').on('click', function(){
+		var actionBtn = $(this),
+			scaleValue = retrieveScale(actionBtn.next('.cd-modal-bg'));
+		
+		actionBtn.addClass('to-circle');
+		actionBtn.next('.cd-modal-bg').addClass('is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+			animateLayer(actionBtn.next('.cd-modal-bg'), scaleValue, true);
+		});
 
-	function scrollY() {
-		return window.pageYOffset || docElem.scrollTop
+		//if browser doesn't support transitions...
+		if(actionBtn.parents('.no-csstransitions').length > 0 ) animateLayer(actionBtn.next('.cd-modal-bg'), scaleValue, true);
+	});
+
+	//trigger the animation - close modal window
+	$('.cd-section .cd-modal-close').on('click', function(){
+		closeModal();
+	});
+	$(document).keyup(function(event){
+		if(event.which=='27') closeModal();
+	});
+
+	$(window).on('resize', function(){
+		//on window resize - update cover layer dimention and position
+		if($('.cd-section.modal-is-visible').length > 0) window.requestAnimationFrame(updateLayer);
+	});
+
+	function retrieveScale(btn) {
+		var btnRadius = btn.width()/2,
+			left = btn.offset().left + btnRadius,
+			top = btn.offset().top + btnRadius - $(window).scrollTop(),
+			scale = scaleValue(top, left, btnRadius, $(window).height(), $(window).width());
+
+		btn.css('position', 'fixed').velocity({
+			top: top - btnRadius,
+			left: left - btnRadius,
+			translateX: 0,
+		}, 0);
+
+		return scale;
 	}
-    function getScrollValue() {
-        theScroll = scrollY(); 
-    }
-    function CircleProps(thisSlide) {
-        this.slide = $(thisSlide); 
-        this.whichSlide = this.slide.attr('id');
-        this.action = this.slide.find('.action');
-        this.close = this.slide.siblings('.action--close');
-        this.isClosed = true;
-        this.addClickListener();
-        this.init(); 
-    }
-    CircleProps.prototype.init = function() {
-        //this.slide.find('.slide__item').prepend('<div class="deco deco--circle deco--expander"></div>');
+
+	function scaleValue( topValue, leftValue, radiusValue, windowW, windowH) {
+		var maxDistHor = ( leftValue > windowW/2) ? leftValue : (windowW - leftValue),
+			maxDistVert = ( topValue > windowH/2) ? topValue : (windowH - topValue);
+		return Math.ceil(Math.sqrt( Math.pow(maxDistHor, 2) + Math.pow(maxDistVert, 2) )/radiusValue);
+	}
+
+	function animateLayer(layer, scaleVal, bool) {
+		layer.velocity({ scale: scaleVal }, 400, function(){
+			$('body').toggleClass('overflow-hidden', bool);
+			(bool) 
+				? layer.parents('.cd-section').addClass('modal-is-visible').end().off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend')
+				: layer.removeClass('is-visible').removeAttr( 'style' ).siblings('[data-type="modal-trigger"]').removeClass('to-circle');
+		});
+	}
+
+	function updateLayer() {
+		var layer = $('.cd-section.modal-is-visible').find('.cd-modal-bg'),
+			layerRadius = layer.width()/2,
+			layerTop = layer.siblings('.btn').offset().top + layerRadius - $(window).scrollTop(),
+			layerLeft = layer.siblings('.btn').offset().left + layerRadius,
+			scale = scaleValue(layerTop, layerLeft, layerRadius, $(window).height(), $(window).width());
+		
+		layer.velocity({
+			top: layerTop - layerRadius,
+			left: layerLeft - layerRadius,
+			scale: scale,
+		}, 0);
+	}
+
+	function closeModal() {
+		var section = $('.cd-section.modal-is-visible');
+		section.removeClass('modal-is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+			animateLayer(section.find('.cd-modal-bg'), 1, false);
+		});
+		//if browser doesn't support transitions...
+		if(section.parents('.no-csstransitions').length > 0 ) animateLayer(section.find('.cd-modal-bg'), 1, false);
+	}
+	
+	
+	var wow = new WOW({
+		offset: 200 // default
+	});
+	wow.init();
+	function numbers(id, from, to) {
+		console.log(id);
+		this.theId = id,
+		this.theFrom = from,
+		this.theTo = to,
+		this.init(); 
+	}
+	numbers.prototype.init =  function() {
+		//console.log('trigger plugin');
+		//setTimeout( function() {
+			$(this.theId).countTo({
+				from:  this.theFrom,
+				to:    this.theTo,
+				speed: 2000
+			});
+		//}, 2000);
+	}
+	var numbersSeen = {
+		rw_stat_num: false,
+		hf_stat_num: false,
+		gg_stat_num: false,
+		ff_stat_num: false,
+		fv_stat_num: false
 	};
-    
-    CircleProps.prototype.addClickListener = function() {
-        //this is the CircleProps object
-        var theSlide = this;
-        console.log(theSlide);
-        $(this.action).click(function(ev){
-            //this is the button
-            //alert(this);
-            theSlide.openContent();
-            ev.target.blur();
-        });
-        $(this.close).click(function(ev){
-           theSlide.closeContent();  
-        });
-    };
-    
-    CircleProps.prototype.openContent = function() {
-        //this is the CircleProps object
-       
-        this.isExpanded = true;
-        this.isClosed = false;
-        this.expandedItem = this;
-        
-        getScrollValue();
-        
-        var expanderEl = this.slide.find('.deco--expander'),
-            scaleVal = Math.ceil(Math.sqrt(Math.pow(docWidth, 2) + Math.pow(docHeight, 2)) / expanderEl[0].offsetWidth),
-			smallImgEl = this.slide.find('.slide__img--small'),
-			contentEl = this.slide.find('.slide__content'),
-			largeImgEl = $(contentEl).find('.slide__img--large'),
-			titleEl = $(contentEl).find('.slide__title--main'),
-			descriptionEl = $(contentEl).find('.slide__description'),
-			priceEl = $(contentEl).find('.slide__price'),
-			buyEl = $(contentEl).find('.button--buy');
-        
-        $(this.slide).addClass('slide--open');
-        bodyEl.style.top = -scrollY() + 'px';
-		$(bodyEl).addClass('lockscroll');
-        
-        // position the content elements:
-		// - image (large image)
-		dynamics.css(largeImgEl[0], {translateY : 800, opacity: 0});
-		// - title
-		dynamics.css(titleEl[0], {translateY : 600, opacity: 0});
-		// - description
-		dynamics.css(descriptionEl[0], {translateY : 400, opacity: 0});
-		// - price
-		dynamics.css(priceEl[0], {translateY : 400, opacity: 0});
-		// - buy button
-		dynamics.css(buyEl[0], {translateY : 400, opacity: 0});
-        
-        // animate (scale up) the expander element
-		dynamics.animate(expanderEl[0], 
-			{
-				scaleX : scaleVal, scaleY : scaleVal
-			}, 
-			{
-				type: dynamics.bezier, points: [{"x":0,"y":0,"cp":[{"x":0.5,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.5,"y":1}]}], duration: 1700
+	$(window).bind("scroll", function(event) {
+		var numCheck = $(".stat-num:in-viewport");
+		//console.log(numCheck.length);
+		if(numCheck.length) {
+			var theID = $(numCheck).attr('id');
+			if (numbersSeen[theID] === false) {
+				var theSelectorID = '#' + theID; 
+				var number = new numbers(theSelectorID,0,90);
+				numbersSeen[theID] = true;
 			}
-		);
-    
-        // animate the small image out
-		dynamics.animate(smallImgEl[0], 
-			{
-				translateY : -600, opacity : 0
-			}, 
-			{
-				type: dynamics.bezier, points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}], duration: 300, delay: 75
-			}
-		);
-        
-        // animate the large image in
-		dynamics.animate(largeImgEl[0], 
-			{
-				translateY : 0, opacity : 1
-			}, 
-			{
-				type: dynamics.bezier, points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}], duration: 1000, delay: 300
-			}
-		);
-        // animate the title element in
-		dynamics.animate(titleEl[0], 
-			{
-				translateY : 0, opacity : 1
-			}, 
-			{
-				type: dynamics.bezier, points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}], duration: 1000, delay: 400
-			}
-		);
-        // animate the description element in
-		dynamics.animate(descriptionEl[0], 
-			{
-				translateY : 0, opacity : 1
-			}, 
-			{
-				type: dynamics.bezier, points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}], duration: 1000, delay: 500
-			}
-		);
-        // animate the price element in
-		dynamics.animate(priceEl[0], 
-			{
-				translateY : 0, opacity : 1
-			}, 
-			{
-				type: dynamics.bezier, points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}], duration: 1000, delay: 600
-			}
-		);
-        // animate the buy element in
-		dynamics.animate(buyEl[0], 
-			{
-				translateY : 0, opacity : 1
-			}, 
-			{
-				type: dynamics.bezier, points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}], duration: 1000, delay: 700,
-				complete: function() {
-					// add .noscroll to body and .scrollable to .slide__content
-                    $(bodyEl).addClass('noscroll');
-                    $(contentEl).addClass('scollable');
-					
-					// force redraw (chrome)
-					contentEl[0].style.display = 'none';
-					contentEl[0].offsetHeight;
-					contentEl[0].style.display = 'block';
-					
-					// allow scrolling
-                    $(bodyEl).removeClass('noscroll');
-                    
-				}
-			}
-		);
-    }
-    
-    CircleProps.prototype.closeContent = function() {
-		this.isClosed = true;
-
-        var expanderEl = this.slide.find('.deco--expander'),
-			smallImgEl = this.slide.find('.slide__img--small'),
-			contentEl = this.slide.find('.slide__content'),
-			largeImgEl = $(contentEl).find('.slide__img--large'),
-			titleEl = $(contentEl).find('.slide__title--main'),
-			descriptionEl = $(contentEl).find('.slide__description'),
-			priceEl = $(contentEl).find('.slide__price'),
-			buyEl = $(contentEl).find('.button--buy');
-        
-        $(this.slide).addClass('slide--close');
-
-		$(bodyEl).removeClass('noscroll');
-        $(contentEl).removeClass('scrollable');
-
-		// animate the buy element out
-		dynamics.stop(buyEl[0]);
-		dynamics.animate(buyEl[0], 
-			{
-				translateY : 400, opacity : 0
-			}, 
-			{
-				type: dynamics.bezier, points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}], duration: 1000
-			}
-		);
-
-		// animate the price element out
-		dynamics.stop(priceEl[0]);
-		dynamics.animate(priceEl[0], 
-			{
-				translateY : 400, opacity : 0
-			}, 
-			{
-				type: dynamics.bezier, points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}], duration: 1000
-			}
-		);
-
-		// animate the description element out
-		dynamics.stop(descriptionEl[0]);
-		dynamics.animate(descriptionEl[0], 
-			{
-				translateY : 400, opacity : 0
-			}, 
-			{
-				type: dynamics.bezier, points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}], duration: 1000, delay: 100
-			}
-		);
-
-		// animate the title element out
-		dynamics.stop(titleEl[0]);
-		dynamics.animate(titleEl[0], 
-			{
-				translateY : 600, opacity : 0
-			}, 
-			{
-				type: dynamics.bezier, points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}], duration: 1000, delay: 200
-			}
-		);
-
-		// animate the large image out
-		dynamics.animate(largeImgEl[0], 
-			{
-				translateY : 800, opacity : 0
-			}, 
-			{
-				type: dynamics.bezier, points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}], duration: 500, delay: 300,
-				complete: function() {
-                    
-                    
-					// remove slide--open class to the item
-                    $('.slide').removeClass('slide--open');
-					// remove slide--close class to the item
-                    $('.slide').removeClass('slide--close');
-					// allow scrolling
-                    $(bodyEl).removeClass('lockscroll');
-                    $(bodyEl).scrollTop(theScroll);
-					this.isExpanded = false;
-				}
-			}
-		);
-
-		// animate the small image in
-		dynamics.animate(smallImgEl[0], 
-			{
-				translateY : 0, opacity : 1
-			}, 
-			{
-				type: dynamics.bezier, points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}], duration: 700, delay: 500
-			}
-		);
-
-		// animate (scale down) the expander element
-		dynamics.animate(expanderEl[0], 
-			{
-				scaleX : 1, scaleY : 1
-			}, 
-			{
-				type: dynamics.bezier, points: [{"x":0,"y":0,"cp":[{"x":0.5,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.5,"y":1}]}], duration: 700, delay: 250
-			}
-		);
-	};
-
-    $('.slide').each(function() {
-       var Circle = new CircleProps(this);
-    });
+		}
+	});
+	
     
 })();
 

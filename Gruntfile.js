@@ -226,7 +226,7 @@ module.exports = function (grunt) {
     filerev: {
       dist: {
         src: [
-          '<%= config.dist %>/scripts/{,*/}*.js',
+          '<%= config.dist %>/scripts/main.js',
           '<%= config.dist %>/styles/{,*/}*.css',
           '<%= config.dist %>/images/{,*/}*.*',
           '<%= config.dist %>/styles/fonts/{,*/}*.*',
@@ -342,7 +342,9 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             'images/{,*/}*.webp',
             '{,*/}*.html',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+			'fonts/*.*',
+			'scripts/jQuerySimpleCounter.js'
           ]
         }, {
           expand: true,

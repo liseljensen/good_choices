@@ -12,6 +12,7 @@
 
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/animate.css/animate.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -34,10 +35,9 @@
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right links">
-                    <li role="presentation"><a href="#">Overview </a></li>
-                    <li role="presentation"><a href="#">Surveys </a></li>
-                    <li role="presentation"><a href="#"> Reports</a></li>
-                    <li role="presentation"><a href="#" class="custom-navbar"> Roles</a></li>
+                    <li role="presentation"><a href="#">trends </a></li>
+                    <li role="presentation"><a href="#">recipes </a></li>
+                    <li role="presentation"><a href="#">save $$</a></li>
                 </ul>
             </div>
         </div>
@@ -45,22 +45,26 @@
     <header class="row">
         <div class="container">
             <div class="circle circle-header">
-                <div class="circle circle-something-good">
+                <div class="circle circle-something-good wow rotateInDownLeft" data-wow-duration="1s" data-wow-delay="2.25s" >
                     <div class="something-good-text">
                         <h1>something<br>good</h1>
                         <h3>for everyone</h3>                    
                     </div>
                 </div>
-                <img src="images/good_choices_logo.png" class="circle-header-img gc" alt="Good Choices Logo" />
+				<div id="good-choices-logo">
+				      <img src="images/good.png" class="circle-header-img gc wow fadeInRight" alt="Good Choices Logo" data-wow-duration="1s" data-wow-delay="1.25s" />
+				      <img src="images/choices.png" class="circle-header-img gc wow bounceIn" alt="Good Choices Logo" data-wow-duration="1s" data-wow-delay=".25s" />
+				</div>
             </div>
         </div>      
     </header>
     <section id="trends" class="bg-green">
         <div class="container">
-            <div class="circle trends">
+            <div class="circle trends wow bounceIn" data-wow-duration="1s" data-wow-delay=".25s">
                 <h2>trends</h2>
             </div>
-            <p>Eu esse ullamco offendit ex iis id despicationes, duis reprehenderit quibusdam 
+            <p class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1.25s">
+				Eu esse ullamco offendit ex iis id despicationes, duis reprehenderit quibusdam 
                 minim expetendis se irure ex si velit laboris, offendit ipsum se tempor 
                 eruditionem ea ingeniis cillum lorem iis enim, quorum quamquam quo 
                 tractavissent, tempor minim multos ingeniis dolor. Varias offendit fabulas aut 
@@ -69,94 +73,269 @@
     </section>
     <section class="row">
 		<div class="container">
-			<div class="col-md-5 col-md-offset-1">
-				<h2>Roasted</h2>
-			</div>
-			<div class="col-md-5 slideshow">
-				<div id="slide-one" class="slide slide--current">
-<!--					<h2 class="slide__title slide__title--preview">Macadamia Skin Oil <span class="slide__price">$39</span></h2>-->
-					<div class="slide__item">
-						<div class="deco deco--circle deco--expander"><img class="slide__img slide__img--small" src="images/roasted.jpg" alt="Some image" /></div>
-						<div class="slide__inner">
-<!--                            <img class="slide__img slide__img--small" src="images/roasted.jpg" alt="Some image" />-->
-							<button class="action action--open" aria-label="View details"><i class="fa fa-plus"></i></button>
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="circle trends wow rollIn" data-wow-duration="2s">
+							<h2>roasted</h2>
 						</div>
 					</div>
-					<div class="slide__content">
-					<div class="slide__content-scroller">
-						<img class="slide__img slide__img--large" src="images/roasted.jpg" alt="Picture of roasted vegetables" />
-							<div class="slide__details">
-								<h2 class="slide__title slide__title--main">Macadamia Skin Oil</h2>
-								<p class="slide__description">Hydration for very dry skin</p>
-								<div>
-									<span class="slide__price slide__price--large">$39</span>
-									<button class="button button--buy">Add to cart</button>
-								</div>
-							</div><!-- /slide__details -->
-						</div><!-- slide__content-scroller -->
-					</div><!-- slide__content -->
+					<div class="col-md-6">
+						<div class="info-graphic">
+							<span id="rw_stat_num" class="stat-num">0</span>
+							<span class="info-med">of conusmers choose</span>
+							<span class="info-large">whole grains</span>
+							<span class="info-med">for the health benefits</span>
+						</div>
+						<div class="col-md-6 icon">
+							<a href="#" class="link recipes">view<br>recipes</a>
+						</div>
+						<div class="col-md-6 icon">
+							<a href="#" class="link coupon">save<br>money</a>
+						</div>
+						<div class="col-md-12 icon">
+							<a href="#" class="link more">learn more <i class="fa fa-chevron-circle-right"></i></a>
+						</div>
+					</div>
 				</div>
-                <button class="action action--close" aria-label="Close"><i class="fa fa-close"></i></button>
+			</div>
+			<div class="col-md-6 cd-section">
+				<div id="roasted" class="circle circle-trend">
+					<img src="images/rw_logo.png" class="img-responsive brand-logo" alt="Roast Works Logo" />
+					<div class="modal-action-container">
+						<div class="cd-modal-action wow bounceIn">
+							<a href="#0" class="btn" data-type="modal-trigger">video <i class="fa fa-play"></i></a>
+							<span class="cd-modal-bg"></span>
+						</div> <!-- cd-modal-action -->
+					</div>
+				</div>
+				<div class="cd-modal">
+					<div class="cd-modal-content">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/926q8cMLaKk" frameborder="0" allowfullscreen></iframe>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/926q8cMLaKk" frameborder="0" allowfullscreen></iframe>
+					</div> <!-- cd-modal-content -->
+				</div> <!-- cd-modal -->
 
+				<a href="#0" class="cd-modal-close">Close</a>
 			</div>
 		</div>
     </section>
-    <div class="row">
-        <div class="col-md-5 col-md-offset-1">
-            <div id="slide-two" class="slide">
-				<h2 class="slide__title slide__title--preview">Macadamia Skin Oil <span class="slide__price">$39</span></h2>
-				<div class="slide__item">
-					<div class="deco deco--circle deco--expander"><img class="slide__img slide__img--small" src="images/roasted.jpg" alt="Some image" /></div>
-					<div class="slide__inner">
-
-						<button class="action action--open" aria-label="View details"><i class="fa fa-plus"></i></button>
+	<hr>
+    <section class="row">
+        <div class="container">
+			<div class="col-md-6 cd-section">
+				<div id="avocado" class="circle circle-trend">
+					<img src="images/hf_logo.png" class="img-responsive brand-logo" alt="Harvest Fresh Logo" />
+					<div class="modal-action-container">
+						<div class="cd-modal-action wow bounceIn">
+							<a href="#0" class="btn" data-type="modal-trigger">video <i class="fa fa-play"></i></a>
+							<span class="cd-modal-bg"></span>
+						</div> <!-- cd-modal-action -->
 					</div>
 				</div>
-				<div class="slide__content">
-				<div class="slide__content-scroller">
-					<img class="slide__img slide__img--large" src="images/roasted.jpg" alt="Picture of roasted vegetables" />
-						<div class="slide__details">
-							<h2 class="slide__title slide__title--main">Macadamia Skin Oil</h2>
-							<p class="slide__description">Hydration for very dry skin</p>
-							<div>
-								<span class="slide__price slide__price--large">$39</span>
-								<button class="button button--buy">Add to cart</button>
-							</div>
-						</div><!-- /slide__details -->
-					</div><!-- slide__content-scroller -->
-				</div><!-- slide__content -->
+				<div class="cd-modal">
+					<div class="cd-modal-content">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/926q8cMLaKk" frameborder="0" allowfullscreen></iframe>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/926q8cMLaKk" frameborder="0" allowfullscreen></iframe>
+					</div> <!-- cd-modal-content -->
+				</div> <!-- cd-modal -->
+				<a href="#0" class="cd-modal-close">Close</a>
 			</div>
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="info-graphic">
+							<span id="hf_stat_num" class="stat-num">0</span>
+							<span class="info-med">of conusmers choose</span>
+							<span class="info-large">whole grains</span>
+							<span class="info-med">for the health benefits</span>
+						</div>
+						<div class="col-md-6 icon">
+							<a href="#" class="link recipes">view<br>recipes</a>
+						</div>
+						<div class="col-md-6 icon">
+							<a href="#" class="link coupon">save<br>money</a>
+						</div>
+						<div class="col-md-12 icon">
+							<a href="#" class="link more">learn more <i class="fa fa-chevron-circle-right"></i></a>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="circle trends wow rollInRight" data-wow-duration="2s">
+							<h2>avocado</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </section>
+	<hr>
+	<section class="row">
+		<div class="container">
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="circle trends wow rollIn">
+							<h2>grains</h2>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="info-graphic">
+							<span id="gg_stat_num" class="stat-num">0</span>
+							<span class="info-med">of conusmers choose</span>
+							<span class="info-large">whole grains</span>
+							<span class="info-med">for the health benefits</span>
+						</div>
+						<div class="col-md-6 icon">
+							<a href="#" class="link recipes">view<br>recipes</a>
+						</div>
+						<div class="col-md-6 icon">
+							<a href="#" class="link coupon">save<br>money</a>
+						</div>
+						<div class="col-md-12 icon">
+							<a href="#" class="link more">learn more <i class="fa fa-chevron-circle-right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 cd-section">
+				<div id="grains" class="circle circle-trend">
+					<img src="images/gg_logo.png" class="img-responsive brand-logo" alt="Good Grains Logo" />
+					<div class="modal-action-container">
+						<div class="cd-modal-action wow bounceIn">
+							<a href="#0" class="btn" data-type="modal-trigger">video <i class="fa fa-play"></i></a>
+							<span class="cd-modal-bg"></span>
+						</div> <!-- cd-modal-action -->
+					</div>
+				</div>
+				<div class="cd-modal">
+					<div class="cd-modal-content">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/926q8cMLaKk" frameborder="0" allowfullscreen></iframe>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/926q8cMLaKk" frameborder="0" allowfullscreen></iframe>
+					</div> <!-- cd-modal-content -->
+				</div> <!-- cd-modal -->
+
+				<a href="#0" class="cd-modal-close">Close</a>
+			</div>
+		</div>
+    </section>
+	<hr>
+    <section class="row">
+        <div class="container">
+			<div class="col-md-6 cd-section">
+				<div id="fruit" class="circle circle-trend">
+					<img src="images/fruits_vegs.png" class="img-responsive brand-logo" alt="Fruits & Vegetables Logo" />
+					<div class="modal-action-container">
+						<div class="cd-modal-action wow bounceIn">
+							<a href="#0" class="btn" data-type="modal-trigger">video <i class="fa fa-play"></i></a>
+							<span class="cd-modal-bg"></span>
+						</div> <!-- cd-modal-action -->
+					</div>
+				</div>
+				<div class="cd-modal">
+					<div class="cd-modal-content">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/926q8cMLaKk" frameborder="0" allowfullscreen></iframe>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/926q8cMLaKk" frameborder="0" allowfullscreen></iframe>
+					</div> <!-- cd-modal-content -->
+				</div> <!-- cd-modal -->
+				<a href="#0" class="cd-modal-close"><i class="fa fa-times"></i></a>
+			</div>
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="info-graphic">
+							<span id="ff_stat_num" class="stat-num">0</span>
+							<span class="info-med">of conusmers choose</span>
+							<span class="info-large">whole grains</span>
+							<span class="info-med">for the health benefits</span>
+						</div>
+						<div class="col-md-6 icon">
+							<a href="#" class="link recipes">view<br>recipes</a>
+						</div>
+						<div class="col-md-6 icon">
+							<a href="#" class="link coupon">save<br>money</a>
+						</div>
+						<div class="col-md-12 icon">
+							<a href="#" class="link more">learn more <i class="fa fa-chevron-circle-right"></i></a>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="circle trends wow rollInRight" data-wow-duration="2s">
+							<h2>Fruits</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="col-md-6 last-group">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="circle trends wow rollIn" data-wow-duration="2s">
+							<h2>vegetables</h2>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="info-graphic">
+							<span id="fv_stat_num" class="stat-num">0</span>
+							<span class="info-med">of conusmers choose</span>
+							<span class="info-large">whole grains</span>
+							<span class="info-med">for the health benefits</span>
+						</div>
+						<div class="col-md-6 icon">
+							<a href="#" class="link recipes">view<br>recipes</a>
+						</div>
+						<div class="col-md-6 icon">
+							<a href="#" class="link coupon">save<br>money</a>
+						</div>
+						<div class="col-md-12 icon">
+							<a href="#" class="link more">learn more <i class="fa fa-chevron-circle-right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 cd-section">
+				<div id="vegetables" class="circle circle-trend">
+					<div class="modal-action-container">
+						<div class="cd-modal-action wow bounceIn">
+							<a href="#0" class="btn" data-type="modal-trigger">video <i class="fa fa-play"></i></a>
+							<span class="cd-modal-bg"></span>
+						</div> <!-- cd-modal-action -->
+					</div>
+				</div>
+				<div class="cd-modal">
+					<div class="cd-modal-content">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/926q8cMLaKk" frameborder="0" allowfullscreen></iframe>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/926q8cMLaKk" frameborder="0" allowfullscreen></iframe>
+					</div> <!-- cd-modal-content -->
+				</div> <!-- cd-modal -->
+
+				<a href="#0" class="cd-modal-close">close</a>
+			</div>
+		</div>
+    </section>
+   <section id="trends" class="bg-green">
+        <div class="container">
+            <div class="circle trends wow bounceIn" data-wow-duration="1s" data-wow-delay=".25s">
+                <h2>trends</h2>
+            </div>
+            <p class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1.25s">
+				Eu esse ullamco offendit ex iis id despicationes, duis reprehenderit quibusdam 
+                minim expetendis se irure ex si velit laboris, offendit ipsum se tempor 
+                eruditionem ea ingeniis cillum lorem iis enim, quorum quamquam quo 
+                tractavissent, tempor minim multos ingeniis dolor. Varias offendit fabulas aut 
+                ita varias de quae. Noster id possumus. </p>
         </div>
-        <div class="col-md-5">
-            <h2>Avocado</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-5 col-md-offset-1">
-            <h2>Grains</h2>
-        </div>
-        <div class="col-md-5"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-5 col-md-offset-1">
-                        
-        </div>
-        <div class="col-md-5">
-            <h2>Fruit</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-5 col-md-offset-1">
-            <h2>Vegetables</h2>
-        </div>
-        <div class="col-md-5"></div>
-    </div>
+    </section>
     
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/velocity/velocity.js"></script>
+    <script src="/bower_components/velocity/velocity.ui.js"></script>
+    <script src="/bower_components/wow/dist/wow.js"></script>
+    <script src="/bower_components/isInViewport/lib/isInViewport.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -175,10 +354,9 @@
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
     <!-- endbuild -->
-    
-	 <script src="scripts/classie.js"></script>
-	 <script src="scripts/dynamics.js"></script>
-
+	  
+	<script src="scripts/jQuerySimpleCounter.js"></script>
+	  
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
