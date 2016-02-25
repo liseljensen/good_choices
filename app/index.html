@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="/bower_components/animate.css/animate.css" />
     <!-- endbower -->
     <!-- endbuild -->
+      
+    <link rel="stylesheet" href="styles/media_boxes_plugin/magnific-popup.css">
+
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
@@ -28,16 +31,16 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <nav class="navbar navbar-default custom-header">
+    <nav class="navbar navbar-default custom-header navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header"><a href="#"><img src="images/simplot_logo.png" class="circle-header-img sl" alt="Simplot Logo" /></a>
+            <div class="navbar-header"><img src="images/simplot_logo_plain.png" id="plain-logo" class="circle-header-img sl" alt="Simplot Logo" style="display:none;" /><a href="#"><img src="images/simplot_logo.png" id="food-logo" class="circle-header-img sl" alt="Simplot Logo" /></a>
                 <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right links">
-                    <li role="presentation"><a href="#">trends </a></li>
-                    <li role="presentation"><a href="#">recipes </a></li>
-                    <li role="presentation"><a href="#">save $$</a></li>
+                    <li role="presentation"><a class="page-scroll" href="#trends">trends </a></li>
+                    <li role="presentation"><a class="page-scroll" href="#recipes">recipes </a></li>
+                    <li role="presentation"><a class="page-scroll" href="#">save $$</a></li>
                 </ul>
             </div>
         </div>
@@ -58,12 +61,12 @@
             </div>
         </div>      
     </header>
-    <section id="trends" class="bg-green">
+    <section id="trends" class="bg-green big-section">
         <div class="container">
             <div class="circle trends wow bounceIn" data-wow-duration="1s" data-wow-delay=".25s">
                 <h2>trends</h2>
             </div>
-            <p class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1.25s">
+            <p class="wow fadeInRight" data-wow-duration="1s" data-wow-delay="1.25s">
 				Eu esse ullamco offendit ex iis id despicationes, duis reprehenderit quibusdam 
                 minim expetendis se irure ex si velit laboris, offendit ipsum se tempor 
                 eruditionem ea ingeniis cillum lorem iis enim, quorum quamquam quo 
@@ -293,7 +296,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-6 cd-section">
+			<div class="col-md-6 last-group cd-section">
 				<div id="vegetables" class="circle circle-trend">
 					<div class="modal-action-container">
 						<div class="cd-modal-action wow bounceIn">
@@ -313,10 +316,10 @@
 			</div>
 		</div>
     </section>
-   <section id="trends" class="bg-green">
+   <section id="recipes" class="bg-green big-section">
         <div class="container">
             <div class="circle trends wow bounceIn" data-wow-duration="1s" data-wow-delay=".25s">
-                <h2>trends</h2>
+                <h2>recipes</h2>
             </div>
             <p class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1.25s">
 				Eu esse ullamco offendit ex iis id despicationes, duis reprehenderit quibusdam 
@@ -326,7 +329,556 @@
                 ita varias de quae. Noster id possumus. </p>
         </div>
     </section>
-    
+    <section>
+        <div class="container">
+        
+    <div class="filters-container">
+			
+			<input type="text" id="search" class="media-boxes-search" placeholder="Search By Title">
+
+			<ul class="media-boxes-filter" id="filter">
+			  <li><a class="selected" href="#" data-filter="*">All</a></li>
+			  <li><a href="#" data-filter=".image">Images</a></li>
+			  <li><a href="#" data-filter=".video">Videos</a></li>
+			  <li><a href="#" data-filter=".sound">Sounds</a></li>
+			  <li><a href="#" data-filter=".image, .sound">Images and Sounds</a></li>
+			</ul>
+
+		</div>		
+
+		<div id="grid">
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box image" data-columns="2">
+		            <div class="media-box-image">
+		                <div data-width="320" data-height="214" data-thumbnail="gallery/thumbnails/thumb-1.jpg"></div>
+		                <div data-popup="gallery/img-1.jpg" title="Dolor sit amet"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-plus mb-open-popup"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		                <div class="media-box-title">Dolor sit amet</div>
+		               
+		                <div class="media-box-text">
+		                    Lorem ipsum dolor sitam psico dell consecteture adipisicing.
+		                    <div class="media-box-more"> <a href="#">Read more</a> </div>
+		                </div>
+		            </div>
+	                
+	                <div class="media-box-footer">
+	                	<a href=""><i class="fa fa-heart-o"></i> 60</a>
+	                	<div class="pull-right">
+	                		<a href=""><i class="fa fa-camera"></i> 120</a> &nbsp;&nbsp;
+	                		<a href=""><i class="fa fa-comment"></i> 80</a>
+	                	</div>
+	                </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box video">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="168" data-thumbnail="gallery/thumbnails/thumb-2.jpg"></div>
+						<div data-type="iframe" data-popup="https://www.youtube.com/watch?v=5guMumPFBag" title="Psico dell consecteture"></div>
+		                
+						<div class="thumbnail-overlay">
+							<i class="fa fa-video-camera mb-open-popup"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+						</div>
+		            </div>
+
+		            <div class="media-box-content">
+		                <div class="media-box-title">Psico dell consecteture</div>
+		                <div class="media-box-text">
+		                    Lorem ipsum dolor sitam psico.
+		                    <div class="media-box-more"> <a href="#">Read more</a> </div>
+		                </div>
+		            </div>
+	                
+	                <div class="media-box-footer">
+	                	<a href=""><i class="fa fa-heart-o"></i> 60</a>
+	                	<div class="pull-right">
+	                		<a href=""><i class="fa fa-camera"></i> 120</a> &nbsp;&nbsp;
+	                		<a href=""><i class="fa fa-comment"></i> 80</a>
+	                	</div>
+	                </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box sound">
+		            <div class="media-box-image">
+		                <div data-width="214" data-height="320" data-thumbnail="gallery/thumbnails/thumb-3.jpg"></div>
+		                <div data-type="iframe" data-popup="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/123844205&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true" title="Sed do eiusmod"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-headphones mb-open-popup"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		                <div class="media-box-title">Sed do eiusmod</div>
+		                <div class="media-box-text">
+		                    Lorem ipsum dolor sitam psico dell consecteture adipisicing.
+		                    <div class="media-box-more"> <a href="#">Read more</a> </div>
+		                </div>
+		            </div>
+	                
+	                <div class="media-box-footer">
+	                	<a href=""><i class="fa fa-heart-o"></i> 60</a>
+	                	<div class="pull-right">
+	                		<a href=""><i class="fa fa-camera"></i> 120</a> &nbsp;&nbsp;
+	                		<a href=""><i class="fa fa-comment"></i> 80</a>
+	                	</div>
+	                </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box video">
+		            <div class="media-box-image">
+		                <div data-width="320" data-height="213" data-thumbnail="gallery/thumbnails/thumb-4.jpg"></div>
+		                <div data-type="iframe" data-popup="https://www.youtube.com/watch?v=UrIbxk7idYA" title="Incididunt ut labore"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-video-camera mb-open-popup"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		                <div class="media-box-title">Incididunt ut labore</div>
+		            </div>
+	                
+	                <div class="media-box-footer">
+	                	<a href=""><i class="fa fa-heart-o"></i> 60</a>
+	                	<div class="pull-right">
+	                		<a href=""><i class="fa fa-camera"></i> 120</a> &nbsp;&nbsp;
+	                		<a href=""><i class="fa fa-comment"></i> 80</a>
+	                	</div>
+	                </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box sound">
+		            <div class="media-box-image">
+		                <div data-width="214" data-height="320" data-thumbnail="gallery/thumbnails/thumb-5.jpg"></div>
+		                <div data-type="iframe" data-popup="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/75185296&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true" title="Et dolore magna"></div>
+
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-headphones mb-open-popup"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		                <div class="media-box-title">Et dolore magna</div>
+		            </div>
+	                
+	                <div class="media-box-footer">
+	                	<a href=""><i class="fa fa-heart-o"></i> 60</a>
+	                	<div class="pull-right">
+	                		<a href=""><i class="fa fa-camera"></i> 120</a> &nbsp;&nbsp;
+	                		<a href=""><i class="fa fa-comment"></i> 80</a>
+	                	</div>
+	                </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box video">
+		            <div class="media-box-image">
+		                <div data-width="320" data-height="214" data-thumbnail="gallery/thumbnails/thumb-6.jpg"></div>
+		                <div data-type="iframe" data-popup="https://www.youtube.com/watch?v=2zqy21Z29ps" title="Enim ad minim"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-video-camera mb-open-popup"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		                <div class="media-box-title">Enim ad minim</div>
+		                <div class="media-box-text">
+		                	Lorem ipsum dolor sitam psico dell consecteture adipisicing elit 
+		                	<div class="media-box-more"> <a href="#">Read more</a> </div>
+		                </div>
+		            </div>
+	                
+	                <div class="media-box-footer">
+	                	<a href=""><i class="fa fa-heart-o"></i> 60</a>
+	                	<div class="pull-right">
+	                		<a href=""><i class="fa fa-camera"></i> 120</a> &nbsp;&nbsp;
+	                		<a href=""><i class="fa fa-comment"></i> 80</a>
+	                	</div>
+	                </div>
+		        </div>
+		 
+		<!-- -------------------------- BOX MARKUP -------------------------- -->            
+		        <div class="media-box video">
+		            <div class="media-box-image">
+		                <div data-width="320" data-height="214" data-thumbnail="gallery/thumbnails/thumb-7.jpg"></div>
+		                <div data-type="iframe" data-popup="http://vimeo.com/22884674" title="Nostrud exercitation"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-video-camera mb-open-popup"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		                <div class="media-box-title">Nostrud exercitation</div>
+		            </div>
+	                
+	                <div class="media-box-footer">
+	                	<a href=""><i class="fa fa-heart-o"></i> 60</a>
+	                	<div class="pull-right">
+	                		<a href=""><i class="fa fa-camera"></i> 120</a> &nbsp;&nbsp;
+	                		<a href=""><i class="fa fa-comment"></i> 80</a>
+	                	</div>
+	                </div>
+		        </div>
+		      
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box image">
+		            <div class="media-box-image">
+		                <div data-width="320" data-height="214" data-thumbnail="gallery/thumbnails/thumb-8.jpg"></div>
+		                <div data-popup="gallery/img-8.jpg" title="Ullamco laboris"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-plus mb-open-popup"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		                <div class="media-box-title">Ullamco laboris</div>
+		                <div class="media-box-text">
+		                    Lorem ipsum dolor sitam psico.
+		                    <div class="media-box-more"> <a href="#">Read more</a> </div>
+		                </div>
+		            </div>
+	                
+	                <div class="media-box-footer">
+	                	<a href=""><i class="fa fa-heart-o"></i> 60</a>
+	                	<div class="pull-right">
+	                		<a href=""><i class="fa fa-camera"></i> 120</a> &nbsp;&nbsp;
+	                		<a href=""><i class="fa fa-comment"></i> 80</a>
+	                	</div>
+	                </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box image">
+		            <div class="media-box-image">
+		                <div data-width="320" data-height="214" data-thumbnail="gallery/thumbnails/thumb-9.jpg"></div>
+		                <div data-popup="gallery/img-9.jpg" title="Nisi ut aliquip"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-plus mb-open-popup"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		                <div class="media-box-title">Nisi ut aliquip</div>
+		                <div class="media-box-text">
+		                    Lorem ipsum dolor sitam psico.
+		                    <div class="media-box-more"> <a href="#">Read more</a> </div>
+		                </div>
+		            </div>
+	                
+	                <div class="media-box-footer">
+	                	<a href=""><i class="fa fa-heart-o"></i> 60</a>
+	                	<div class="pull-right">
+	                		<a href=""><i class="fa fa-camera"></i> 120</a> &nbsp;&nbsp;
+	                		<a href=""><i class="fa fa-comment"></i> 80</a>
+	                	</div>
+	                </div>
+		        </div>
+		      
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box video">
+		            <div class="media-box-image">
+		                <div data-width="320" data-height="213" data-thumbnail="gallery/thumbnails/thumb-10.jpg"></div>
+		                <div data-type="iframe" data-popup="https://www.youtube.com/watch?v=KVu3gS7iJu4" title="Ex ea commodo"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-video-camera mb-open-popup"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		                <div class="media-box-title">Ex ea commodo</div>
+		                <div class="media-box-text">
+		                    Lorem ipsum dolor sitam psico dell consecteture adipisicing.
+		                    <div class="media-box-more"> <a href="#">Read more</a> </div>
+		                </div>
+		            </div>
+	                
+	                <div class="media-box-footer">
+	                	<a href=""><i class="fa fa-heart-o"></i> 60</a>
+	                	<div class="pull-right">
+	                		<a href=""><i class="fa fa-camera"></i> 120</a> &nbsp;&nbsp;
+	                		<a href=""><i class="fa fa-comment"></i> 80</a>
+	                	</div>
+	                </div>
+		        </div>
+		      
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box image">
+		            <div class="media-box-image">
+		                <div data-width="320" data-height="214" data-thumbnail="gallery/thumbnails/thumb-11.jpg"></div>
+		                <div data-popup="gallery/img-11.jpg" title="Duis aute irure"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-plus mb-open-popup"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		                <div class="media-box-title">Duis aute irure</div>
+		                <div class="media-box-text">
+		                    Lorem ipsum dolor sitam psico.
+		                    <div class="media-box-more"> <a href="#">Read more</a> </div>
+		                </div>
+		            </div>
+	                
+	                <div class="media-box-footer">
+	                	<a href=""><i class="fa fa-heart-o"></i> 60</a>
+	                	<div class="pull-right">
+	                		<a href=""><i class="fa fa-camera"></i> 120</a> &nbsp;&nbsp;
+	                		<a href=""><i class="fa fa-comment"></i> 80</a>
+	                	</div>
+	                </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box sound">
+		            <div class="media-box-image">
+		                <div data-width="320" data-height="214" data-thumbnail="gallery/thumbnails/thumb-12.jpg"></div>
+	                	<div data-type="iframe" data-popup="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/75185291&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true" title="Dolor in reprehenderit"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-headphones mb-open-popup"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		                <div class="media-box-title">Dolor in reprehenderit</div>
+		                <div class="media-box-text">
+		                    Lorem ipsum dolor sitam psico.
+		                    <div class="media-box-more"> <a href="#">Read more</a> </div>
+		                </div>
+		            </div>
+	                
+	                <div class="media-box-footer">
+	                	<a href=""><i class="fa fa-heart-o"></i> 60</a>
+	                	<div class="pull-right">
+	                		<a href=""><i class="fa fa-camera"></i> 120</a> &nbsp;&nbsp;
+	                		<a href=""><i class="fa fa-comment"></i> 80</a>
+	                	</div>
+	                </div>
+		        </div>
+		     
+		    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box image">
+		            <div class="media-box-image">
+		                <div data-width="320" data-height="214" data-thumbnail="gallery/thumbnails/thumb-13.jpg"></div>
+		                <div data-popup="gallery/img-13.jpg" title="Dolor sit amet"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-plus mb-open-popup"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		                <div class="media-box-title">Dolor sit amet</div>
+		               
+		                <div class="media-box-text">
+		                    Lorem ipsum dolor sitam psico dell consecteture adipisicing.
+		                    <div class="media-box-more"> <a href="#">Read more</a> </div>
+		                </div>
+		            </div>
+	                
+	                <div class="media-box-footer">
+	                	<a href=""><i class="fa fa-heart-o"></i> 60</a>
+	                	<div class="pull-right">
+	                		<a href=""><i class="fa fa-camera"></i> 120</a> &nbsp;&nbsp;
+	                		<a href=""><i class="fa fa-comment"></i> 80</a>
+	                	</div>
+	                </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box video">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-14.jpg"></div>
+						<div data-type="iframe" data-popup="https://www.youtube.com/watch?v=5guMumPFBag" title="Psico dell consecteture"></div>
+		                
+						<div class="thumbnail-overlay">
+							<i class="fa fa-video-camera mb-open-popup"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+						</div>
+		            </div>
+
+		            <div class="media-box-content">
+		                <div class="media-box-title">Psico dell consecteture</div>
+		                <div class="media-box-text">
+		                    Lorem ipsum dolor sitam psico.
+		                    <div class="media-box-more"> <a href="#">Read more</a> </div>
+		                </div>
+		            </div>
+	                
+	                <div class="media-box-footer">
+	                	<a href=""><i class="fa fa-heart-o"></i> 60</a>
+	                	<div class="pull-right">
+	                		<a href=""><i class="fa fa-camera"></i> 120</a> &nbsp;&nbsp;
+	                		<a href=""><i class="fa fa-comment"></i> 80</a>
+	                	</div>
+	                </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box sound">
+		            <div class="media-box-image">
+		                <div data-width="214" data-height="320" data-thumbnail="gallery/thumbnails/thumb-30.jpg"></div>
+		                <div data-type="iframe" data-popup="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/123844205&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true" title="Sed do eiusmod"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-headphones mb-open-popup"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		                <div class="media-box-title">Sed do eiusmod</div>
+		                <div class="media-box-text">
+		                    Lorem ipsum dolor sitam psico dell consecteture adipisicing.
+		                    <div class="media-box-more"> <a href="#">Read more</a> </div>
+		                </div>
+		            </div>
+	                
+	                <div class="media-box-footer">
+	                	<a href=""><i class="fa fa-heart-o"></i> 60</a>
+	                	<div class="pull-right">
+	                		<a href=""><i class="fa fa-camera"></i> 120</a> &nbsp;&nbsp;
+	                		<a href=""><i class="fa fa-comment"></i> 80</a>
+	                	</div>
+	                </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box video">
+		            <div class="media-box-image">
+		                <div data-width="320" data-height="213" data-thumbnail="gallery/thumbnails/thumb-16.jpg"></div>
+		                <div data-type="iframe" data-popup="https://www.youtube.com/watch?v=UrIbxk7idYA" title="Incididunt ut labore"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-video-camera mb-open-popup"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		                <div class="media-box-title">Incididunt ut labore</div>
+		            </div>
+	                
+	                <div class="media-box-footer">
+	                	<a href=""><i class="fa fa-heart-o"></i> 60</a>
+	                	<div class="pull-right">
+	                		<a href=""><i class="fa fa-camera"></i> 120</a> &nbsp;&nbsp;
+	                		<a href=""><i class="fa fa-comment"></i> 80</a>
+	                	</div>
+	                </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box sound">
+		            <div class="media-box-image">
+		                <div data-width="214" data-height="320" data-thumbnail="gallery/thumbnails/thumb-46.jpg"></div>
+		                <div data-type="iframe" data-popup="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/75185296&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true" title="Et dolore magna"></div>
+
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-headphones mb-open-popup"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		                <div class="media-box-title">Et dolore magna</div>
+		            </div>
+	                
+	                <div class="media-box-footer">
+	                	<a href=""><i class="fa fa-heart-o"></i> 60</a>
+	                	<div class="pull-right">
+	                		<a href=""><i class="fa fa-camera"></i> 120</a> &nbsp;&nbsp;
+	                		<a href=""><i class="fa fa-comment"></i> 80</a>
+	                	</div>
+	                </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box video">
+		            <div class="media-box-image">
+		                <div data-width="320" data-height="200" data-thumbnail="gallery/thumbnails/thumb-18.jpg"></div>
+		                <div data-type="iframe" data-popup="https://www.youtube.com/watch?v=2zqy21Z29ps" title="Enim ad minim"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-video-camera mb-open-popup"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		                <div class="media-box-title">Enim ad minim</div>
+		                <div class="media-box-text">
+		                	Lorem ipsum dolor sitam psico dell consecteture adipisicing elit 
+		                	<div class="media-box-more"> <a href="#">Read more</a> </div>
+		                </div>
+		            </div>
+	                
+	                <div class="media-box-footer">
+	                	<a href=""><i class="fa fa-heart-o"></i> 60</a>
+	                	<div class="pull-right">
+	                		<a href=""><i class="fa fa-camera"></i> 120</a> &nbsp;&nbsp;
+	                		<a href=""><i class="fa fa-comment"></i> 80</a>
+	                	</div>
+	                </div>
+		        </div>
+		 
+		<!-- -------------------------- BOX MARKUP -------------------------- -->            
+		        <div class="media-box video">
+		            <div class="media-box-image">
+		                <div data-width="320" data-height="214" data-thumbnail="gallery/thumbnails/thumb-19.jpg"></div>
+		                <div data-type="iframe" data-popup="http://vimeo.com/22884674" title="Nostrud exercitation"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-video-camera mb-open-popup"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		                <div class="media-box-title">Nostrud exercitation</div>
+		            </div>
+	                
+	                <div class="media-box-footer">
+<a href="">	                	<i class="fa fa-heart-o"></i> 60</a>
+	                	<div class="pull-right">
+	                		<a href=""><i class="fa fa-camera"></i> 120</a> &nbsp;&nbsp;
+	                		<a href=""><i class="fa fa-comment"></i> 80</a>
+	                	</div>
+	                </div>
+		        </div>
+		</div> <!-- #container -->
+        </div>
+      </section>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -354,7 +906,16 @@
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
     <!-- endbuild -->
-	  
+    
+    <script src="scripts/media_boxes_plugin/jquery.isotope.min.js"></script>
+	<script src="scripts/media_boxes_plugin/jquery.imagesLoaded.min.js"></script>
+	<script src="scripts/media_boxes_plugin/jquery.transit.min.js"></script>
+	<script src="scripts/media_boxes_plugin/jquery.easing.js"></script>
+	<script src="scripts/media_boxes_plugin/waypoints.min.js"></script>
+	<script src="scripts/media_boxes_plugin/jquery.magnific-popup.min.js"></script>
+	<script src="scripts/media_boxes_plugin/jquery.mediaBoxes.js"></script>
+      
+      
 	<script src="scripts/jQuerySimpleCounter.js"></script>
 	  
     <!-- build:js scripts/main.js -->

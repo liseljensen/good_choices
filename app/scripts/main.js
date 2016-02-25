@@ -108,7 +108,18 @@ $('[data-type="modal-trigger"]').on('click', function(){
 		ff_stat_num: false,
 		fv_stat_num: false
 	};
+    function checkNav() {
+        if ($(document).scrollTop() > 25) {
+            $('#food-logo').fadeOut();
+            $('#plain-logo').fadeIn();
+        } 
+        else {
+            $('#food-logo').fadeIn();
+            $('#plain-logo').fadeOut();
+        }
+    }
 	$(window).bind("scroll", function(event) {
+        checkNav(); 
 		var numCheck = $(".stat-num:in-viewport");
 		//console.log(numCheck.length);
 		if(numCheck.length) {
@@ -120,8 +131,23 @@ $('[data-type="modal-trigger"]').on('click', function(){
 			}
 		}
 	});
-	
     
+    $('#grid').mediaBoxes({
+	    	filterContainer: '#filter',
+	    	search: '#search',
+	    	boxesToLoadStart: 8,
+	    	boxesToLoad: 6,
+	    	horizontalSpaceBetweenBoxes: 20,
+        	verticalSpaceBetweenBoxes: 20,
+	    }); 
+	
+    $(document).on("click", '.page-scroll', function(event) { 
+        event.preventDefault();
+        var $anchor = $(this);
+        $('html, body').animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1250, 'easeInOutExpo');
+    });
 })();
 
 

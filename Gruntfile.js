@@ -342,9 +342,10 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             'images/{,*/}*.webp',
             '{,*/}*.html',
-            'styles/fonts/{,*/}*.*',
+            'styles/media_boxes_plugin/{,*/}*.*',
 			'fonts/*.*',
-			'scripts/jQuerySimpleCounter.js'
+			'scripts/jQuerySimpleCounter.js',
+            'scripts/media_boxes_plugin/{,*/}*.*'
           ]
         }, {
           expand: true,

@@ -1,13 +1,11 @@
 $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
-$green: #7bbc42;
-$darkgreen: #3C8A2E; 
-$simplot-gray: #675c53;
-
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 @import "bower_components/font-awesome/scss/font-awesome.scss";
 // endbower
+
+@import "mediaBoxes.scss";
 /* -------------------------------- 
 
 Primary style
@@ -17,6 +15,7 @@ Primary style
 body {
     background: #f9f7f7;
 	overflow-x: hidden; 
+    color: $simplot-gray; 
 }
 .navbar {
     margin-bottom: 0; 
@@ -71,13 +70,17 @@ header {
     position: absolute;
     &.sl {
         top:0;   
-		max-width: 150px;
+		max-width: 200px;
 		margin-top: 10px; 
     }
 	&.gc {
 		position: relative;
 		float:left;
 	}
+}
+#plain-logo {
+    max-width: 100px;
+    margin-top: 5px
 }
 #good-choices-logo {
 	position: absolute;
@@ -114,7 +117,6 @@ header {
 }
 #vegetables {
 	background: #fff url(../images/vegetables.jpg) no-repeat bottom;
-	margin-top: 100px; 
 }
 .something-good-text {
     top: 100px;
@@ -129,9 +131,7 @@ header {
         margin-top: 0; 
     }
 }
-#trends {
-    padding: 100px 0; 
-    height: 500px;
+.big-section {
     //position: relative; 
     .trends {
 		margin-top:0;
@@ -141,16 +141,33 @@ header {
         float: left; 
         margin-right: 50px; 
         border: double 10px $green; 
+         h2 {
+            font-size: 3em;
+            color: $green; 
+        }
     }
     p {
-        margin-top: 100px; 
         color: white;
         font-size: 1.2em; 
         padding-left: 20px;
     }
-	h2 {
-		color: $green; 
-	}
+}
+#trends {
+    height: 500px;
+    padding: 100px 0; 
+    p {
+        margin-top: 100px;
+    }
+}
+#recipes {
+    height: 200px;
+    padding: 0;
+    .trends {
+        margin-top: -50px;
+    }
+    p {
+        margin-top: 50px; 
+    }
 }
 .trends {
     position: relative; 
@@ -337,6 +354,11 @@ Main Components
   bottom: -200px;
   right: -150px;
   text-align: center;
+}
+.last-group {
+    .modal-action-container {
+        bottom: -350px;
+    }
 }
 .cd-modal-action {
   position: relative;
