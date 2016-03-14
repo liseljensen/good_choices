@@ -70,7 +70,7 @@ module.exports = function (grunt) {
             '<%= config.app %>/images/{,*/}*',
             '.tmp/scripts/{,*/}*.js'
           ],
-          port: 9000,
+          port: 8500,
           server: {
             baseDir: ['.tmp', config.app],
             routes: {
@@ -341,11 +341,13 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             'images/{,*/}*.webp',
-            '{,*/}*.html',
+            'assets/{,*/}*.*',
+            '{,*/}*.*',
             'styles/media_boxes_plugin/{,*/}*.*',
 			'fonts/*.*',
 			'scripts/jQuerySimpleCounter.js',
-            'scripts/media_boxes_plugin/{,*/}*.*'
+            'scripts/media_boxes_plugin/{,*/}*.*',
+            'styles/icons/{,*/}*.*'
           ]
         }, {
           expand: true,
@@ -441,13 +443,13 @@ module.exports = function (grunt) {
     'copy:dist',
     'modernizr',
     'filerev',
-    'usemin',
-    'htmlmin'
+   	'usemin',
+   // 'htmlmin'
   ]);
 
   grunt.registerTask('default', [
-    'newer:eslint',
-    'test',
+    //'newer:eslint',
+    //'test',
     'build'
   ]);
 };

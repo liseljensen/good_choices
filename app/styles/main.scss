@@ -218,19 +218,26 @@ hr {
 		font-size: .5em;
 	}
 }
+
 .info-graphic {
 	//width: 250px; 
 	text-align: center; 
 	color: $green;
-	span.info-med:nth-of-type(2) {
-		margin-top: -42px;
-	}
-	span:last-child {
-		font-size:1.55em;
-		padding-bottom: 20px;
-		border-bottom: 3px solid lightgray; 
-		font-weight: 600;
-	}
+//	span.info-med:nth-of-type(2) {
+//		margin-top: -42px;
+//	}
+//	span:last-child {
+//		font-size:1.55em;
+//		padding-bottom: 20px;
+//		border-bottom: 3px solid lightgray; 
+//		font-weight: 600;
+//	}
+}
+
+.info-small {
+	font-size: 1.25em;
+	display: block;
+	font-weight: 100;
 }
 .info-med {
 	font-size: 1.75em;
@@ -242,16 +249,37 @@ hr {
 	font-weight: 600; 
 	text-transform: uppercase;
 	display: block; 
+}
+.info-large-tall {
+	font-size: 2.1em;
+	font-weight: 600; 
+	text-transform: uppercase;
+	display: block; 
 	transform:scale(1,2); /* W3C */
 	-webkit-transform:scale(1,2); /* Safari and Chrome */
 	-moz-transform:scale(1,2); /* Firefox */
 	-ms-transform:scale(1,2); /* IE 9 */
 	-o-transform:scale(1,2); /* Opera */
 }
+.roast-works {
+	.info-med:nth-of-type(3) {
+		font-size: 1.95em;
+		margin-top: -10px;
+	}
+	.info-large {
+		margin-top: -50px;
+		font-size: 3.5em;
+    	font-weight: 300;
+	}
+	.info-large-tall {
+		font-size: 2.2em;
+		margin-top: 10px;
+	}
+}
 .link {
 	display: block;
 	font-size: 1.4em;
-	line-height: 1.25em;
+	line-height: 1.3em;
 	color: $simplot-gray;
 	margin-top: 30px;
 	margin-left: -15px;

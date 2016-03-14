@@ -124,22 +124,40 @@ $('[data-type="modal-trigger"]').on('click', function(){
 		//console.log(numCheck.length);
 		if(numCheck.length) {
 			var theID = $(numCheck).attr('id');
+			var thePercent;
+			switch(theID) {
+				case 'rw_stat_num':
+					thePercent = 35;
+					break;
+				case 'hf_stat_num':
+					thePercent = 75;
+					break;
+				case 'gg_stat_num':
+					thePercent = 86;
+					break;
+				case 'ff_stat_num':
+					thePercent = 33;
+					break;
+				default:
+					thePercent = 0; 
+			}
 			if (numbersSeen[theID] === false) {
 				var theSelectorID = '#' + theID; 
-				var number = new numbers(theSelectorID,0,90);
+				var number = new numbers(theSelectorID,0,thePercent);
 				numbersSeen[theID] = true;
 			}
 		}
 	});
     
     $('#grid').mediaBoxes({
-	    	filterContainer: '#filter',
-	    	search: '#search',
-	    	boxesToLoadStart: 8,
-	    	boxesToLoad: 6,
-	    	horizontalSpaceBetweenBoxes: 20,
-        	verticalSpaceBetweenBoxes: 20,
-	    }); 
+		filterContainer: '.filters',
+		search: '#search',
+		boxesToLoadStart: 8,
+		boxesToLoad: 5,
+		horizontalSpaceBetweenBoxes: 20,
+		verticalSpaceBetweenBoxes: 20,
+		overlayEffect: 'direction-aware-fade'
+	}); 
 	
     $(document).on("click", '.page-scroll', function(event) { 
         event.preventDefault();
