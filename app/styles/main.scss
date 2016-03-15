@@ -17,6 +17,9 @@ body {
 	overflow-x: hidden; 
     color: $simplot-gray; 
 }
+.row {
+    margin: 0; 
+}
 .navbar {
     margin-bottom: 0; 
     background: rgba(247, 249, 248, .9);
@@ -49,7 +52,6 @@ a {
 header {
     background: url('../images/bkgd.jpg') repeat-x; 
     height: 800px;
-    //overflow: hidden;
     position: relative;
 }
 .circle{
@@ -189,7 +191,7 @@ header {
     }
 }
 section {
-	padding: 100px 0; 
+	padding: 100px 0 10px; 
 	&.dark-gray {
 		background: #e8e5e5;
 	}
@@ -218,8 +220,8 @@ hr {
 		font-size: .5em;
 	}
 }
-
 .info-graphic {
+    margin:0 auto;
 	//width: 250px; 
 	text-align: center; 
 	color: $green;
@@ -261,19 +263,63 @@ hr {
 	-ms-transform:scale(1,2); /* IE 9 */
 	-o-transform:scale(1,2); /* Opera */
 }
+i.fa.fa-asterisk {
+    font-weight: 100;
+    font-size: 10px;
+}
 .roast-works {
 	.info-med:nth-of-type(3) {
 		font-size: 1.95em;
 		margin-top: -10px;
+        text-align: right;
 	}
 	.info-large {
 		margin-top: -50px;
-		font-size: 3.5em;
+		font-size: 2.5em;
     	font-weight: 300;
+        text-align: left; 
 	}
 	.info-large-tall {
-		font-size: 2.2em;
+		font-size: 2.1em;
 		margin-top: 10px;
+        text-align: left;
+	}
+    @media (max-width: $screen-md-max) { 
+        .info-med:nth-of-type(3) {
+            font-size: 1.75em;
+            margin-top: -10px;
+        }
+        .info-large-tall {
+            font-size: 1.75em;
+            margin-top: 10px;
+        }
+    }
+    @media (max-width: $screen-xs-max) { 
+        .info-graphic-container {
+            width: 285px;
+        }
+    }
+}
+.harvest-fresh {
+    .info-med:first-child {
+        text-align: left;
+    }
+    .info-med:nth-of-type(3) {
+		font-size: 2.5em;
+		margin-top: -50px;
+        text-align: right;
+	}
+    .info-large-tall {
+		font-size: 2.5em;
+		margin-top: 10px;
+        text-align: left;
+	}
+    .info-med:nth-of-type(5) {
+		text-align: right;
+        margin-right: 20px; 
+	}
+    .info-large:nth-of-type(6) {
+		//text-align: left;
 	}
 }
 .link {
@@ -299,7 +345,9 @@ hr {
 .last-group {
 	margin-top: 100px; 
 }
-
+.cite {
+    margin-top: 100px;
+}
 /* -------------------------------- 
 
 Main Components 
