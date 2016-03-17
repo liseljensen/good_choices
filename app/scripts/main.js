@@ -136,7 +136,10 @@ $('[data-type="modal-trigger"]').on('click', function(){
 					thePercent = 86;
 					break;
 				case 'ff_stat_num':
-					thePercent = 33;
+					thePercent = 1;
+					break;
+				case 'fv_stat_num':
+					thePercent = 12;
 					break;
 				default:
 					thePercent = 0; 

@@ -55,7 +55,7 @@ header {
     position: relative;
     @media (max-width: $screen-sm-max) { 
         height: 450px; 
-        
+        background: url('../images/mobile_bg.jpg') no-repeat; 
     }
 }
 .circle{
@@ -99,7 +99,15 @@ header {
 }
 #plain-logo {
     max-width: 100px;
-    margin-top: 5px
+    margin-top: 5px;
+	@media (max-width: $screen-sm-max) { 
+		display: block !important;
+	}
+}
+#food-logo {
+	@media (max-width: $screen-sm-max) { 
+		display: none !important;
+	}
 }
 #good-choices-logo {
 	position: absolute;
@@ -173,13 +181,20 @@ header {
         width: 300px;
         height: 300px; 
         background: #fff; 
-        float: left; 
+        //float: left; 
         margin-right: 50px; 
         border: double 10px $green; 
          h2 {
             font-size: 3em;
             color: $green; 
         }
+		@media (max-width: $screen-sm-max) { 
+			width: 200px;
+        	height: 200px; 
+		}
+		@media (max-width: $screen-xs-max) { 
+			margin: 0 auto; 
+		}
     }
     p {
         color: white;
@@ -193,6 +208,12 @@ header {
     p {
         margin-top: 100px;
     }
+	@media (max-width: $screen-sm-max) { 
+		height: auto; 
+		p {
+			margin-top: 20px;
+		}
+	}
 }
 #recipes {
     height: 200px;
@@ -222,6 +243,9 @@ header {
         color: white;
         margin:0; 
     }
+	@media (max-width: $screen-sm-max) { 
+		margin-top: 0; 
+	}
 }
 section {
 	padding: 100px 0 10px; 
@@ -259,6 +283,15 @@ hr {
             font-size: .25em;
         }
     }
+}
+#ff_stat_num {
+	&:after {
+		content: "";
+		font-size: .5em;
+	}
+	&:before {
+		content: "#";
+	}
 }
 .info-graphic {
     margin:0 auto;
@@ -430,20 +463,22 @@ hr {
 	}
 	.info-med:nth-of-type(3) {
 		text-align: left;
+		margin-left: 20px; 
 	}
 	.info-large:nth-of-type(4) {
 		font-size: 2.8em;
     	line-height: 45px;
-		margin: 10px 0;
+		margin: 10px 0 15px;
 		color: $lightgreen; 
-	}
-	.info-med:nth-of-type(5) {
-		width: 100%;
 	}
 	.info-med:nth-of-type(5), .info-med:nth-of-type(6) {
 		text-align: left;
     	margin-left: 20px;
 		display: inline-block; 
+	}
+	.info-med:nth-of-type(5) {
+		width: 100%;
+		text-align: center;
 	}
 	sup {
 		top: -10px;
@@ -464,10 +499,16 @@ hr {
 		font-size: 3.5em;
 		margin-top: 10px; 
 	}
-	.info-med:nth-of-type(3) {
-		font-size: 2em;
+	.info-med:nth-of-type(3) { 
+		text-align: left;
+	}
+	.info-med:nth-of-type(4) {
+		font-size: 1.75em;
 		text-transform: uppercase; 
 		text-align: left; 
+		line-height: 25px;
+		margin: 15px 0; 
+		font-weight: 600;
 	}
 	.info-large {
 		font-size: 4.5em;
@@ -477,9 +518,8 @@ hr {
 		margin-bottom: 20px; 
 	}
 	sup {
-		top: -25px;
-		left: 5px; 
-		color: $lightgreen; 
+		top: -35px;
+		left: 90px; 
 	}
 	@media (max-width: $screen-md-max) { 
         .info-large {
