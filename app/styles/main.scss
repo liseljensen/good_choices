@@ -53,6 +53,10 @@ header {
     background: url('../images/bkgd.jpg') repeat-x; 
     height: 800px;
     position: relative;
+    @media (max-width: $screen-sm-max) { 
+        height: 450px; 
+        
+    }
 }
 .circle{
     border-radius: 50%; 
@@ -67,6 +71,14 @@ header {
     left: 35%;
     padding: 100px;
     border: 10px solid #fff; 
+    @media (max-width: $screen-sm-max) { 
+       background:transparent; 
+       border:none;
+       width: auto;
+       height: auto; 
+       position: relative;
+       left: 50%; 
+    }
 }
 .circle-header-img {
     position: absolute;
@@ -79,6 +91,11 @@ header {
 		position: relative;
 		float:left;
 	}
+    @media (max-width: $screen-sm-max) { 
+        &.gc {
+            height: 150px;
+        }
+    }
 }
 #plain-logo {
     max-width: 100px;
@@ -89,6 +106,9 @@ header {
 	top:200px;
 	left: -240px;
 	width: 301px;
+    @media (max-width: $screen-sm-max) { 
+        //left:100px;
+    }
 }
 .circle-something-good {
     background: rgba(255,255,255, .75); 
@@ -98,6 +118,31 @@ header {
     width: 320px;
     height: 320px;
     border: 5px solid #fff; 
+    @media (max-width: $screen-sm-max) { 
+        width: 220px;
+        height: 220px; 
+        //left: 290px;
+    }
+}
+.something-good-text {
+    top: 100px;
+    right: 30px;
+    position: relative;
+    text-align: right;
+    h1 {
+        font-size: 3em;
+        margin-bottom: 0;
+    }
+    h3 {
+        margin-top: 0; 
+    }
+    @media (max-width: $screen-sm-max) { 
+        top: 40px;
+        right: 20px;
+        h1 {
+            font-size: 2.5em;
+        }
+    }
 }
 .circle-trend {
 	margin: 0 auto; 
@@ -120,19 +165,7 @@ header {
 #vegetables {
 	background: #fff url(../images/vegetables.jpg) no-repeat bottom;
 }
-.something-good-text {
-    top: 100px;
-    right: 30px;
-    position: relative;
-    text-align: right;
-    h1 {
-        font-size: 3em;
-        margin-bottom: 0;
-    }
-    h3 {
-        margin-top: 0; 
-    }
-}
+
 .big-section {
     //position: relative; 
     .trends {
@@ -220,6 +253,12 @@ hr {
 		content: "%";
 		font-size: .5em;
 	}
+    @media (max-width: $screen-md-max) { 
+        &:after {
+            content: "%";
+            font-size: .25em;
+        }
+    }
 }
 .info-graphic {
     margin:0 auto;
@@ -321,7 +360,7 @@ hr {
 	}
     @media (max-width: $screen-md-max) { 
         .info-med:nth-of-type(3) {
-            font-size: 1.75em;
+            font-size: 1.5em;
             margin-top: 10px;
 			 line-height: 20px;
         }
@@ -376,7 +415,7 @@ hr {
 	}
 	@media (max-width: $screen-md-max) { 
 		sup {
-			left: 60px;
+			left: 45px;
 			top: -30px;
 		}
 	}
@@ -443,6 +482,9 @@ hr {
 		color: $lightgreen; 
 	}
 	@media (max-width: $screen-md-max) { 
+        .info-large {
+            font-size: 3.5em; 
+        }
 		.info-med:nth-of-type(2) {
 			font-size: 3em;
 			line-height: 30px;
@@ -450,7 +492,7 @@ hr {
 		}
 	}
 }
-@media (max-width: $screen-md-max) { 
+@media (max-width: $screen-sm-max) { 
 	.info-graphic-container {
 		width: 290px;
 	}
