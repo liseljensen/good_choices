@@ -11,11 +11,20 @@ $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 Primary style
 
 -------------------------------- */
-
+html {
+    overflow-x: hidden; 
+}
 body {
     background: #f9f7f7;
 	overflow-x: hidden; 
     color: $simplot-gray; 
+    min-width: 320px; 
+    width: 100%; 
+}
+.lockscroll {
+	//position: fixed;
+	//overflow-y: scroll;
+	//height: 100vh;
 }
 .row {
     margin: 0; 
@@ -79,6 +88,9 @@ header {
        position: relative;
        left: 50%; 
     }
+    @media (max-width: $screen-sm-max) { 
+       left: 60%;
+    }
 }
 .circle-header-img {
     position: absolute;
@@ -102,6 +114,7 @@ header {
     margin-top: 5px;
 	@media (max-width: $screen-sm-max) { 
 		display: block !important;
+        margin-left: 10px;
 	}
 }
 #food-logo {
@@ -114,8 +127,10 @@ header {
 	top:200px;
 	left: -240px;
 	width: 301px;
-    @media (max-width: $screen-sm-max) { 
-        //left:100px;
+    @media (max-width: 450px) { 
+        position: relative;
+        top: 50px;
+        left: -280px;
     }
 }
 .circle-something-good {
@@ -130,6 +145,9 @@ header {
         width: 220px;
         height: 220px; 
         //left: 290px;
+    }
+    @media (max-width: 450px) { 
+        left: -110px;
     }
 }
 .something-good-text {
@@ -157,21 +175,43 @@ header {
 	width: 450px;
 	height: 450px;
 	border: 5px solid #fff; 
+    @media (max-width: $screen-sm-max) { 
+        width: 300px;
+        height: 300px;
+    }
+    @media (max-width: $screen-sm-max) { 
+        margin-top: 20px; 
+    }
 }
 #roasted {
 	background: #fff url(../images/roasted.jpg) no-repeat bottom;
+    @media (max-width: $screen-sm-max) { 
+        background: #fff url(../images/roasted_mobile.jpg) no-repeat bottom;
+    }
 }
 #avocado {
 	background: #fff url(../images/avocado.jpg) no-repeat bottom;
+    @media (max-width: $screen-sm-max) { 
+        background: #fff url(../images/avocado_mobile.jpg) no-repeat bottom;
+    }
 }
 #grains {
 	background: #fff url(../images/grains.jpg) no-repeat bottom;
+    @media (max-width: $screen-sm-max) { 
+        background: #fff url(../images/grains_mobile.jpg) no-repeat bottom;
+    }
 }
 #fruit {
 	background: #fff url(../images/fruit.jpg) no-repeat bottom;
+    @media (max-width: $screen-sm-max) { 
+        background: #fff url(../images/fruit_mobile.jpg) no-repeat bottom;
+    }
 }
 #vegetables {
 	background: #fff url(../images/vegetables.jpg) no-repeat bottom;
+    @media (max-width: $screen-sm-max) { 
+        background: #fff url(../images/vegetables_mobile.jpg) no-repeat bottom;
+    }
 }
 
 .big-section {
@@ -224,6 +264,24 @@ header {
     p {
         margin-top: 50px; 
     }
+    @media (max-width: $screen-sm-max) { 
+        height: 150px;
+        .trends {
+            margin-top:-25px;
+        }
+        p {
+            margin-top: 25px;
+        }
+    }
+    @media (max-width: $screen-xs-max) { 
+        height: auto;
+        .trends {
+            margin-top: 50px;
+        }
+        p {
+            margin: 25px 0 50px; 
+        }
+    }
 }
 .trends {
     position: relative; 
@@ -244,8 +302,16 @@ header {
         margin:0; 
     }
 	@media (max-width: $screen-sm-max) { 
-		margin-top: 0; 
+        width: 150px;
+        height: 150px;
+        margin:0; 
+        h2 {
+            font-size: 25px; 
+        }
 	}
+    @media (max-width: $screen-xs-max) { 
+        margin: 0 auto;
+    }
 }
 section {
 	padding: 100px 0 10px; 
@@ -410,7 +476,6 @@ hr {
             width: 285px;
         }
     }
-	
 }
 .harvest-fresh {
 	.stat-num {
@@ -515,7 +580,7 @@ hr {
 		width: auto;
 		color: $lightgreen; 
 		line-height: 50px;
-		margin-bottom: 20px; 
+		margin: 10px 0 20px; 
 	}
 	sup {
 		top: -35px;
@@ -532,9 +597,32 @@ hr {
 		}
 	}
 }
+.vegetable {
+    .info-med:nth-of-type(2) {
+        margin:10px 0; 
+    }
+    .info-large:nth-of-type(3) {
+        line-height: 35px;
+        font-size: 3em;
+        color: $lightgreen;
+        margin:15px 0 20px; 
+        text-align: left;
+    }
+    .info-med:nth-of-type(5) {
+        text-transform: uppercase;
+        font-weight: 600;
+        text-align: right;
+        display: inline-block;
+    }
+    sup {
+        left: 5px;
+        top: -15px;
+    }
+}
 @media (max-width: $screen-sm-max) { 
 	.info-graphic-container {
 		width: 290px;
+        margin: 0 auto; 
 	}
 }
 .link {
@@ -563,13 +651,42 @@ hr {
 .cite {
     margin-top: 100px;
 }
+.intrinsic-container {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}
+
+/* 16x9 Aspect Ratio */
+.intrinsic-container-16x9 {
+  padding-bottom: 56.25%;
+}
+
+/* 4x3 Aspect Ratio */
+.intrinsic-container-4x3 {
+  padding-bottom: 75%;
+}
+
+.intrinsic-container iframe {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 /* -------------------------------- 
 
 Main Components 
 
 -------------------------------- */
 .cd-section {
-
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) { 
+        float: left;
+        margin-top: -400px !important;
+        #roasted {
+            margin-top:50px;
+        }
+    }
 }
 .cd-section p {
   -webkit-font-smoothing: antialiased;
@@ -645,10 +762,20 @@ Main Components
   bottom: -200px;
   right: -150px;
   text-align: center;
+  @media (max-width: $screen-sm-max) { 
+    bottom: -100px;
+    right: -30px;
+  }
 }
 .last-group {
     .modal-action-container {
         bottom: -350px;
+    }
+    @media (max-width: $screen-xs-max) { 
+        margin-top:100px; 
+        #vegetables {
+            margin-top: -80px;
+        }
     }
 }
 .cd-modal-action {

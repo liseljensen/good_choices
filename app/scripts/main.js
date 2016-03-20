@@ -1,5 +1,7 @@
 (function(){
     'use strict';
+    
+    
 $('[data-type="modal-trigger"]').on('click', function(){
 		var actionBtn = $(this),
 			scaleValue = retrieveScale(actionBtn.next('.cd-modal-bg'));
@@ -11,6 +13,8 @@ $('[data-type="modal-trigger"]').on('click', function(){
 
 		//if browser doesn't support transitions...
 		if(actionBtn.parents('.no-csstransitions').length > 0 ) animateLayer(actionBtn.next('.cd-modal-bg'), scaleValue, true);
+        
+        $('.navbar.navbar-default.custom-header').hide(); 
 	});
 
 	//trigger the animation - close modal window
@@ -25,6 +29,8 @@ $('[data-type="modal-trigger"]').on('click', function(){
 		//on window resize - update cover layer dimention and position
 		if($('.cd-section.modal-is-visible').length > 0) window.requestAnimationFrame(updateLayer);
 	});
+    
+    
 
 	function retrieveScale(btn) {
 		var btnRadius = btn.width()/2,
@@ -72,16 +78,22 @@ $('[data-type="modal-trigger"]').on('click', function(){
 
 	function closeModal() {
 		var section = $('.cd-section.modal-is-visible');
+        $('.cd-section.modal-is-visible iframe').attr("src", $(".cd-section.modal-is-visible iframe").attr("src"));
 		section.removeClass('modal-is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
 			animateLayer(section.find('.cd-modal-bg'), 1, false);
 		});
 		//if browser doesn't support transitions...
 		if(section.parents('.no-csstransitions').length > 0 ) animateLayer(section.find('.cd-modal-bg'), 1, false);
+        
+        setTimeout(function(){ 
+            $('.navbar.navbar-default.custom-header').show(); 
+        }, 1000);
 	}
 	
 	
 	var wow = new WOW({
-		offset: 200 // default
+		offset: 200, // default
+        mobile: false
 	});
 	wow.init();
 	function numbers(id, from, to) {
