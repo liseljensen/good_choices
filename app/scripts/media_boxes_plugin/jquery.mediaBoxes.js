@@ -953,12 +953,13 @@
             [6] FILTER
      * ====================================================================== */   
 
+		
         var filterContainer = $(settings.filterContainer);  
         
         filterContainer.on('click', settings.filter, function(e){
             var $this = $(this);
             
-            /* Remove selected class from others */
+           	/* Remove selected class from others */
             var filterContainer = $this.parents(settings.filterContainer);
             filterContainer.find(settings.filter).removeClass('selected');
             
@@ -975,6 +976,31 @@
 
             e.preventDefault();
         });
+		
+		$('.recipes').on('click', function(e){
+			//console.log('click');
+
+			var $productFilter = $('#product-filter'),
+				theFilter = $(this).data('filter'),
+				filterId = "first-filter";
+			
+			//Reset filter
+			//filterTheBoxes( '*', filterId );
+			
+			//Get selected filter from link data attr
+           	$productFilter.find(settings.filter).removeClass('selected');
+			$productFilter.find('a').each(function() {
+				var theAnchorFilter = $(this).data('filter');
+				if(theAnchorFilter === theFilter) {
+					$(this).addClass('selected');
+				}
+			});
+			//Filter based on link
+			filterTheBoxes( theFilter, filterId );
+			
+			//Update dropdown header to display selected filter
+			$('#product-filter-header').html( '<span class="fa fa-sort-desc"></span>' + theFilter.slice(1));
+		});
 
         /* DEFAULT FILTERS SELECTED */
         filterContainer.each(function(){
@@ -1702,10 +1728,13 @@
                 e.preventDefault();
                 //return false;
             });
-
         }
-
-
+		
+//		$('.recipes').on('click', function(){
+//			console.log('recipe click');
+//			
+//		});
+		
         $('.media-boxes-drop-down').each(function(){
             start($(this));
         });

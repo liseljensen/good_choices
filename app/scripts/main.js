@@ -1,7 +1,25 @@
 (function(){
     'use strict';
     
-    
+    var isMobile = (function(agent) {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(agent);
+    })();
+	
+	var getUrlParameter = function getUrlParameter(sParam) {
+		var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+			sURLVariables = sPageURL.split('&'),
+			sParameterName,
+			i;
+
+		for (i = 0; i < sURLVariables.length; i++) {
+			sParameterName = sURLVariables[i].split('=');
+
+			if (sParameterName[0] === sParam) {
+				return sParameterName[1] === undefined ? true : sParameterName[1];
+			}
+		}
+	};
+	
 $('[data-type="modal-trigger"]').on('click', function(){
 		var actionBtn = $(this),
 			scaleValue = retrieveScale(actionBtn.next('.cd-modal-bg'));
@@ -97,7 +115,7 @@ $('[data-type="modal-trigger"]').on('click', function(){
 	});
 	wow.init();
 	function numbers(id, from, to) {
-		console.log(id);
+		//console.log(id);
 		this.theId = id,
 		this.theFrom = from,
 		this.theTo = to,
@@ -131,7 +149,10 @@ $('[data-type="modal-trigger"]').on('click', function(){
         }
     }
 	$(window).bind("scroll", function(event) {
-        checkNav(); 
+		if (!(isMobile)) {
+			checkNav(); 
+		}
+        
 		var numCheck = $(".stat-num:in-viewport");
 		//console.log(numCheck.length);
 		if(numCheck.length) {
@@ -176,7 +197,9 @@ $('[data-type="modal-trigger"]').on('click', function(){
 	
     $(document).on("click", '.page-scroll', function(event) { 
         event.preventDefault();
-        var $anchor = $(this);
+        var $anchor = $(this),
+			$anchorHref = $anchor.attr('href'),
+			anchorFilter = '.' + $anchor.data('filter');
         $('html, body').animate({
             scrollTop: $($anchor.attr('href')).offset().top
         }, 1250, 'easeInOutExpo');

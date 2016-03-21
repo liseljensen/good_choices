@@ -471,10 +471,14 @@ hr {
 			left: 40px; 
 		}
     }
+	@media (max-width: $screen-sm-max) { 
+		sup {
+			top: -25px; 
+			left: 5px; 
+		}
+	}
     @media (max-width: $screen-xs-max) { 
-        .info-graphic-container {
-            width: 285px;
-        }
+       
     }
 }
 .harvest-fresh {
@@ -513,8 +517,14 @@ hr {
 	}
 	@media (max-width: $screen-md-max) { 
 		sup {
-			left: 45px;
+			left: 55px;
 			top: -30px;
+		}
+	}
+	@media (max-width: $screen-sm-max) { 
+		sup {
+			left: -75px; 
+			top: -5px; 
 		}
 	}
 }
@@ -673,6 +683,28 @@ hr {
   left: 0;
   width: 100%;
   height: 100%;
+}
+footer {
+   padding: 100px 0;
+   color: #fff; 
+   a {
+	   color: #fff; 
+   }
+	p {
+		padding-top: 70px; 
+		font-size: 1em !important;
+	}
+  .navbar-nav {
+    width: 100%;
+    text-align: center;
+    > li {
+      float: none;
+      display: inline-block;
+    }
+  }
+}
+.filters-container {
+	padding-bottom: 30px; 
 }
 /* -------------------------------- 
 
