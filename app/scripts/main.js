@@ -149,7 +149,7 @@ $('[data-type="modal-trigger"]').on('click', function(){
         }
     }
 	$(window).bind("scroll", function(event) {
-		if (!(isMobile)) {
+		if (isMobile === false) {
 			checkNav(); 
 		}
         
